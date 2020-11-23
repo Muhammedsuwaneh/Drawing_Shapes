@@ -10,5 +10,5 @@ The Program draws:
 
 The program draws a cordinate system and fixes the shape in it
 
-The x and y cordinates range from [-10, 10] however can increase to make
+The x and y cordinates range from [-20, 20] however can increase to make
 the shape look clearer and fit on the console.
