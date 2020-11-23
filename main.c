@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#define max 20
 
 char displayMenu();
 void drawLine();
@@ -26,6 +27,9 @@ int main() {
 	case 4:
 		printf("Program successfully terminated");
 		exit(0);
+	default:
+		printf("Option does not exist");
+		break;
 	}
 
 	printf("\n\n");
@@ -39,9 +43,12 @@ char displayMenu() {
 
 	printf("Which shape would you like to draw\n");
 
-	printf("Line\n");
-	printf("Parabola\n");
-	printf("Circle\n");
+	printf("=================================================\n");
+	printf("1.Line\n");
+	printf("2.Parabola\n");
+	printf("3.Circle\n");
+	printf("4.Exit..");
+	printf("\n=================================================\n");
 	printf("Choice: ");
 	scanf_s("%d", &choice);
 
@@ -50,15 +57,72 @@ char displayMenu() {
 
 void drawLine() {
 
-	printf("\nYou selected a line");
+	// get inputs 
+	printf("=================================================\n");
+	printf("INPUTS\n");
+	printf("=================================================\n");
+	int a, b;
+	printf("Enter a: ");
+	scanf_s("%d", &a);
+
+	printf("Enter b: ");
+	scanf_s("%d", &b);
+
+	char c = '+';
+
+	// draw line
+	printf("=================================================\n");
+	printf("Graph of y = %dx%c%d\n\n", a, (b > 0) ? c : ' ', b);
+	printf("=================================================\n");
+
+	int fx;
+
+	for (int y = max; y >= -max; y--) {
+
+		for (int x = -max; x <= max; x++) {
+
+			// obtain y = f(x) 
+			fx = a * x + b;
+
+			// fix x and y characters
+			if (y == max && x == 0)
+				printf("y");
+
+			else if (x == max && y == 0)
+				printf("x");
+
+			// fix vertical axis
+			else if (x == 0)
+				printf("|");
+
+			// fix horizontal axis
+			else if (y == 0)
+				printf("-");
+
+			// fix points
+			else if (y == fx)
+				printf("*");
+
+			// leave spaces
+			else
+				printf(" ");
+		}
+
+		printf("\n");
+	}
 }
 
 void drawParabola() {
 
-	printf("You selected a Parabola");
+	// get inputs
+
+	// draw parabola 
 }
 
 void drawCircle() {
 
-	printf("\nYou selected a Circle");
+	// get inputs
+	
+
+	// draw circle
 }
