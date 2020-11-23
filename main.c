@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
-#define max 20
+#include <math.h>
+#define max 30
 
 char displayMenu();
 void drawLine();
@@ -68,34 +69,34 @@ void drawLine() {
 	printf("Enter b: ");
 	scanf_s("%d", &b);
 
-	char c = '+';
+	char op = ' ', op_1 = ' ';
 
-	// draw line
-	printf("=================================================\n");
-	printf("Graph of y = %dx%c%d\n\n", a, (b > 0) ? c : ' ', b);
-	printf("=================================================\n");
+	(a > 0) ? op = '+' : ' ';
+	(b > 0) ? op_1 =  '+' : ' ';
+
+	printf("Graph of: %c%dx%c%d\n\n", op, a, op_1, b);
 
 	int fx;
 
+	// plot line
 	for (int y = max; y >= -max; y--) {
 
 		for (int x = -max; x <= max; x++) {
 
 			// obtain y = f(x) 
-			fx = a * x + b;
+			fx = a*x + b;
 
 			// fix x and y characters
 			if (y == max && x == 0)
 				printf("y");
-
 			else if (x == max && y == 0)
 				printf("x");
 
-			// fix vertical axis
+			// fix horizontal axis
 			else if (x == 0)
 				printf("|");
 
-			// fix horizontal axis
+			// fix vertical axis
 			else if (y == 0)
 				printf("-");
 
@@ -114,15 +115,121 @@ void drawLine() {
 
 void drawParabola() {
 
-	// get inputs
+	// get inputs 
+	printf("=================================================\n");
+	printf("INPUTS\n");
+	printf("=================================================\n");
+	int a, b, c;
+	printf("Enter a: ");
+	scanf_s("%d", &a);
 
-	// draw parabola 
+	printf("Enter b: ");
+	scanf_s("%d", &b);
+
+	printf("Enter c: ");
+	scanf_s("%d", &c);
+
+	char op = ' ', op_1 = ' ', op_2 = ' ';
+
+	(a > 0) ? op = '+' : ' ';
+	(b > 0) ? op_1 = '+' : ' ';
+	(c > 0) ? op_2 = '+' : ' ';
+
+	printf("Graph of: %c%dx^2%c%dx%c%d\n\n", op, a, op_1, b, op_2, c);
+
+	int fx;
+
+	// plot parabola
+	for (int y = max; y >= -max; y--) {
+
+		for (int x = -max; x <= max; x++) {
+
+			// obtain y = f(x) 
+			fx = a*pow(x,2)+(b*x)+c;
+
+			// fix x and y characters
+			if (y == max && x == 0)
+				printf("y");
+			else if (x == max && y == 0)
+				printf("x");
+
+			// fix horizontal axis
+			else if (x == 0)
+				printf("|");
+
+			// fix vertical axis
+			else if (y == 0)
+				printf("-");
+
+			// fix points
+			else if (y == fx)
+				printf("*");
+
+			// leave spaces
+			else
+				printf(" ");
+		}
+
+		printf("\n");
+	}
 }
 
 void drawCircle() {
 
-	// get inputs
-	
+	// get inputs 
+	printf("=================================================\n");
+	printf("INPUTS\n");
+	printf("=================================================\n");
+	int a, b, r;
 
-	// draw circle
+	printf("Enter a: ");
+	scanf_s("%d", &a);
+
+	printf("Enter b: ");
+	scanf_s("%d", &b);
+
+	printf("Enter radius: ");
+	scanf_s("%d", &r);
+
+
+	char op = ' ', op_1 = ' ', op_2 = ' ';
+
+	(a > 0) ? op = '+' : ' ';
+	(b > 0) ? op_1 = '+' : ' ';
+
+	printf("Graph of (x%c%d)^2 + (y%c%d)^2 = r^2", op, a, op_1, b);
+	printf("\nCenter (%d, %d), radius: %d\n\n", a, b, r);
+
+	int fx;
+
+	// plot circle
+	for (int y = max; y >= -max; y--) {
+
+		for (int x = -max; x <= max; x++) {
+
+			// fix x and y characters
+			if (y == max && x == 0)
+				printf("y");
+			else if (x == max && y == 0)
+				printf("x");
+
+			// fix horizontal axis
+			else if (x == 0)
+				printf("|");
+
+			// fix vertical axis
+			else if (y == 0)
+				printf("-");
+
+			// fix points
+
+			// leave spaces
+			else
+				printf(" ");
+		}
+
+		printf("\n");
+	}
+
+	// plot parabola
 }
