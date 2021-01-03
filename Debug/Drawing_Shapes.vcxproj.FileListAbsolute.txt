@@ -1,2 +1,4 @@
 C:\Users\PROJECT VENUS\Documents\C Programming\Assigments\MidTerm\Drawing_Shapes\Debug\Drawing_Shapes.exe
 C:\Users\PROJECT VENUS\Documents\C Programming\Assigments\MidTerm\Drawing_Shapes\Debug\Drawing_Shapes.pdb
+C:\Users\PROJECT VENUS\Documents\C Programming\Assigments\Final_Exam\Drawing_Shapes\Debug\Drawing_Shapes.exe
+C:\Users\PROJECT VENUS\Documents\C Programming\Assigments\Final_Exam\Drawing_Shapes\Debug\Drawing_Shapes.pdb
