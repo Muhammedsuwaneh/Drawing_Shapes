@@ -1,5 +1,6 @@
 ﻿  main.c
 C:\Users\PROJECT VENUS\Documents\C Programming\Assigments\Final_Exam\Drawing_Shapes\main.c(4,1): warning C4005: 'max': macro redefinition
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdlib.h(1289): message : see previous definition of 'max'
-C:\Users\PROJECT VENUS\Documents\C Programming\Assigments\Final_Exam\Drawing_Shapes\main.c(98,28): warning C4047: '!=': 'int' differs in levels of indirection from 'void *'
+C:\Users\PROJECT VENUS\Documents\C Programming\Assigments\Final_Exam\Drawing_Shapes\main.c(81,1): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\PROJECT VENUS\Documents\C Programming\Assigments\Final_Exam\Drawing_Shapes\main.c(113,1): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   Drawing_Shapes.vcxproj -> C:\Users\PROJECT VENUS\Documents\C Programming\Assigments\Final_Exam\Drawing_Shapes\Debug\Drawing_Shapes.exe

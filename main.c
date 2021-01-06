@@ -3,111 +3,124 @@
 #include <math.h>
 #define max 10
 
-char graphMat[max][max];
-
-void formatMatrix();
-char displayMenu();
 void drawLine();
-void drawCircle();
 void drawParabola();
+void drawCircle();
 
 int main() {
 
-	char choice;
+	int choice;
 
-	choice = displayMenu();
+	printf("Which shape would you like to draw ?\n");
+	printf("1. Line\n");
+	printf("2. Parabola\n");
+	printf("3. Circle\n");
+	printf("4. Exit\n");
+	printf("Choose: ");
+	scanf_s("%d", &choice);
 
-	formatMatrix();
-
-	switch (choice) {
-
-	case 1:
+	if (choice == 1)
 		drawLine();
-		break;
-	case 2:
+	else if (choice == 2)
 		drawParabola();
-		break;
-	case 3:
+	else if (choice == 3)
 		drawCircle();
-		break;
-	case 4:
-		printf("Program successfully terminated");
-		exit(0);
-	default:
+	else if (choice == 4)
+		printf("Program terminated\n");
+	else
 		printf("Option does not exist");
-		break;
-	}
 
 	printf("\n\n");
 	return 0;
 }
 
-void formatMatrix() {
-
-	for (int y = max; y > -max; y--) {
-		for (int x = -max; x < max; x++) {
-			graphMat[x][y] = ' ';
-		}
-	}
-
-	for (int x = -max; x < max; x++) {
-		graphMat[x][0] = '-';
-	}
-
-	for (int y = max; y > -max; y--) {
-		graphMat[0][y] = '|';
-	}
-}
-
-char displayMenu() {
-
-	int choice;
-
-	printf("Which shape would you like to draw\n");
-
-	printf("=================================================\n");
-	printf("1.Line\n");
-	printf("2.Parabola\n");
-	printf("3.Circle\n");
-	printf("4.Exit..");
-	printf("\n=================================================\n");
-	printf("Choice: ");
-	scanf_s("%d", &choice);
-
-	return choice;
-}
-
 void drawLine() {
 
-	// get inputs 
-	printf("=================================================\n");
-	printf("INPUTS\n");
-	printf("=================================================\n");
 	int a, b;
+	printf("Enter a: ");
+	scanf_s("%d", &a);	
+	
+	printf("Enter b: ");
+	scanf_s("%d", &b);
+
+	for (int j = max; j > -max; j--) {
+
+		for (int i = -max; i < max; i++) {
+
+			int y = a * i + b;
+
+			if (i == 0)
+				printf("|");
+			if (j == 0)
+				printf("-");
+			else if (j == y)
+				printf("*");
+			else
+				printf(" ");
+		}
+		printf("\n");
+	}
+}
+
+void drawParabola() {
+
+	int a, b, c;
 	printf("Enter a: ");
 	scanf_s("%d", &a);
 
 	printf("Enter b: ");
 	scanf_s("%d", &b);
 
-	for (int y = max; y > -max; y--) {
-		for (int x = -max; x < max; x++) {
-			
-			int fx = a * x + b;
+	printf("Enter c: ");
+	scanf_s("%d", &c);
 
-			if(fx == y && fx != NULL)
-				graphMat[y][x] = '*';
-		}
-	}
+	for (int j = max; j > -max; j--) {
 
-	for (int y = max; y > -max; y--) {
-		for (int x = -max; x < max; x++) {
-			printf("%c", graphMat[x][y]);
+		for (int i = -max; i < max; i++) {
+
+			int y = a*pow(i, 2) + b*i + c;
+
+			if (i == 0)
+				printf("|");
+			if (j == 0)
+				printf("-");
+			else if (j == y)
+				printf("*");
+			else
+				printf(" ");
 		}
 		printf("\n");
 	}
 }
 
-void drawParabola() {}
+void drawCircle() {
 
-void drawCircle() {}
+	int a, b, r;
+	printf("Enter a: ");
+	scanf_s("%d", &a);
+
+	printf("Enter b: ");
+	scanf_s("%d", &b);
+
+	printf("Enter r: ");
+	scanf_s("%d", &r);
+
+
+	for (int j = max; j > -max; j--) {
+
+		for (int i = -max; i < max; i++) {
+
+			int val = pow((i - a), 2) + pow((j - b), 2);
+
+			if (i == 0)
+				printf("|");
+			if (j == 0)
+				printf("-");
+			else if (val == pow(r, 2))
+				printf("*");
+			else
+				printf(" ");
+		}
+		printf("\n");
+	}
+}
