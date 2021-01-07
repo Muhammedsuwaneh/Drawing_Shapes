@@ -1,3 +1,10 @@
+/*
+  Muhammed Suwaneh 
+  Eskisehir Osmangazi University
+  Drawing Shapes in C programming
+  January 2021
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
